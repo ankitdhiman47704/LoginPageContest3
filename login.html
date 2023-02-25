@@ -30,14 +30,13 @@
     </div>
     <script>
         let loginDiv = document.querySelector("#loginPage")
-
         let loginEmail = document.getElementById('loginEmail')
         let loginPass = document.getElementById("loginPass")
         let loginButton = document.getElementById("loginBtn")
 
-        loginButton.addEventListener('click', loginCheckKaro)
+        loginButton.addEventListener('click', LoginCheck)
 
-        function loginCheckKaro() {
+        function LoginCheck() {
             let isEmailandPass = false
             let person = JSON.parse(localStorage.getItem("user"));
             let loginmsg = document.getElementById('loginSuccess')

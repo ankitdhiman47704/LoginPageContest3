@@ -1,24 +1,20 @@
-let data = JSON.parse(localStorage.getItem("currentUser"))
-if(data!=null){
-   window.location.href = "dashboard.html"
-}
-
-
-
 
 let form = document.querySelector("form");
 let inputs = form.querySelectorAll('input');
 let spans = form.querySelectorAll('span');
 
-
-let person = new Array()
+let data = JSON.parse(localStorage.getItem("currentUser"))
+if(data!=null){
+   window.location.href = "dashboard.html"
+}
+let myobj = new Array()
 
 for(let i = 0;i<inputs.length;i++){
     inputs[i].addEventListener("input",()=>{validateInputs(inputs[i].id)});
 }
 let signupBtn = form.querySelector("#signupBtn");
 
-signupBtn.addEventListener('click',addPersonIntoData)
+signupBtn.addEventListener('click',addPrsonIntoData)
 
 
 
@@ -37,7 +33,7 @@ function validateInputs(indNo){
     }
 }
 
-function addPersonIntoData(e){
+function addPrsonIntoData(e){
     let allFieldValid = true;
     let sucessMsg = document.querySelector('#sucessfullyAdded')
     for (const t of spans) {
@@ -58,15 +54,15 @@ function addPersonIntoData(e){
     
     if(allFieldValid==true && isAlreadyExist==false){
         if(checkuser!=null){
-            person = [...JSON.parse(localStorage.getItem("user"))];
+            myobj = [...JSON.parse(localStorage.getItem("user"))];
         }
         let obj = new Object();
         
         obj.name = inputs[0].value
         obj.email = inputs[1].value
         obj.password = inputs[2].value
-        person.push(obj);
-        localStorage.setItem("user", JSON.stringify(person));
+        myobj.push(obj);
+        localStorage.setItem("user", JSON.stringify(myobj));
         sucessMsg.innerHTML = "You are Successfully Signed Up"
         sucessMsg.style.color = "green"
         window.location.href = "login.html"
