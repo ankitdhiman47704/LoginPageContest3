@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="brand-title">SIGN UP</div>
+        <div class="inputs">
+            <form>
+                <label>NAME </label>
+                <input id="0" type="text" name="name">
+                <span id="nameValid"></span>
+                <label>EMAIL </label>
+                <input id="1" type="email" name="email">
+                <span id="emailValid"></span>
+                <label>PASSWORD</label>
+                <input id="2" type="password" placeholder="Min 6 charaters long" name="password">
+                <span id="newPassValid"></span>
+                <label>Confirm Password </label>
+                <input id="3" type="password" name="confirm-password">
+                <span id="confirmPassValid"></span>
+                <div class="buttons">
+                    <button  id="signupBtn" type="button">SIGN UP</button>
+                    <button onclick="signinBtn()" type="button">SIGN IN </button>
+                </div>
+            </form>
+            <p id="sucessfullyAdded"></p>
+        </div>
+    </div>
+    <!-- <div id="signupPage" class="">
+        <h2>Signup Page</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input id="0" type="text" name="name">
+            <span id="nameValid"></span>
+            <br>
+            <label for="email">Email :</label>
+            <input id="1" type="email" name="email">
+            <span id="emailValid"></span>
+            <br>
+            <label for="password">Password :</label>
+            <input id="2" type="password" name="password">
+            <span id="newPassValid"></span>
+            <br>
+            <label for="confirm-password">Confirm Password :</label>
+            <input id="3" type="password" name="confirm-password">
+            <span id="confirmPassValid"></span><br>
+            <input id="signupBtn" type="button" value="Signup"> 
+            <input onclick="signinBtn()" type="button" value="Signin">
+        </form>
+        <p id="sucessfullyAdded"></p>
+    </div> -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="brand-title">LOGIN</div>
+        <div class="inputs">
+            <div id="loginPage" class="hide">
+                <h3></h3>
+                <form id="loginPageForm">
+                    <label>EMAIL</label>
+                    <input id="loginEmail" type="email" name="email">
+                    <label>PASSWORD </label>
+                    <input id="loginPass" type="password" name="password">
+                    <!-- <input id="loginBtn" type="button" value="Login"> -->
+                    <button  id="loginBtn" type="button">LOGIN</button>
+                    <p id="loginSuccess"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        let loginDiv = document.querySelector("#loginPage")
+
+        let loginEmail = document.getElementById('loginEmail')
+        let loginPass = document.getElementById("loginPass")
+        let loginButton = document.getElementById("loginBtn")
+
+        loginButton.addEventListener('click', loginCheckKaro)
+
+        function loginCheckKaro() {
+            let isEmailandPass = false
+            let person = JSON.parse(localStorage.getItem("user"));
+            let loginmsg = document.getElementById('loginSuccess')
+            for (let t of person) {
+                if ((t.email == loginEmail.value) && (t.password == loginPass.value)) {
+                    isEmailandPass = true
+                    let token = ""
+                    let capital_digit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    let small_digit = "abcdefghijklmnopqrstuvwxyz"
+                    let number = "0123456789"
+                    let special = "!@#$%^&*()_+"
+
+                    let characters = capital_digit + small_digit + number + special
+
+
+                    for (let i = 0; i < 16; i++) {
+                        let random = Math.floor(Math.random() * characters.length) // 4
+                        token = token + characters[random]
+                    }
+                    t.token = token
+                    localStorage.setItem("currentUser", JSON.stringify(t));
+                }
+            }
+            if (isEmailandPass) {
+                loginmsg.innerText = "Login Success"
+                loginmsg.style.color = "green"
+                window.location.href = "dashboard.html"
+
+            } else {
+                loginmsg.innerText = "Email and Password are not Correct"
+                loginmsg.style.color = "red"
+            }
+        }
+    </script>
+</body>
+
+</html>
